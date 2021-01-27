@@ -28,18 +28,17 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+      <li>
+        <div id="new-user-div" href="#">
+          <button id="new-user-button" style='color:black'>New User</button>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>
 
-<button class='new-game'>START GAME</button>
-<!-- <h1 class="title">Confetti</h1> -->
-
-
-<div id="new-user-div">
-  <button id="new-user-button">New User</button>
-</div>
+<button class='new-game'>NEW GAME</button>
+<h1 class="title">Confetti</h1>
 
 <form class="login" id="player-1-login">
   <label>Player 1</label>
@@ -51,39 +50,30 @@
   <input>
   <button type="submit">Log in</button>
 </form>
-<div id="test"></div>
-  <div class="boxed" >
-    <h3 id='player-1-name' style="text-align: center;">PLAYER 1 NAME</h3>
-    <h3 id='player-1-score' style="text-align: center;">SCORE</h3>
-    <div class = "correct1"></div>
-    <table style="width:100%">
-      <tr>
-        <th style ="text-align: center;">Correct Words</th>
-      </tr>
-      <tr>
-        <td>Jill</td>
-      </tr>
-      <tr>
-        <td>Eve</td>
-      </tr>
-    </table>
-    <div class = "incorrect1"></div>
-    <div class = "correct1"></div>
-    <table style="width:100%">
-      <tr>
-        <th style ="text-align: center;">Incorrect Words</th>
-      </tr>
-      <tr>
-        <td>Jill</td>
-      </tr>
-      <tr>
-        <td>Eve</td>
-      </tr>
-    </table>
+
+  <div class="boxed">
+    <h3 id='player-1-name' style="text-align: center;">PLAYER 1</h3>
+    <h3 id='player-1-score' style="text-align: center;">SCORE: </h3>
+    <div class = "correct1">
+      <table style="width:100%">
+        <tr>
+          <th style ="text-align: center;">Correct Words</th>
+        </tr>
+      </table>
+    </div>
+    <div class = "incorrect1">
+      <table style="width:100%">
+        <tr>
+          <th style ="text-align: center;">Incorrect Words</th>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div id="container">
-  </div>
+
+  <div id="container"></div>
   <div id = "rules">
+    <button class="close">Close X</button>
+    <p>These are the rules. Fill this out later!</p>
   </div>
 
   <div id="wordcard">
@@ -103,34 +93,22 @@
 
   <div class="boxed2">
     <h3 id='player-2-name' style="text-align: center;">PLAYER 2 NAME</h3>
-    <h3 id='player-2-score' style="text-align: center;">SCORE</h3>
-    <div class = "correct2"></div>
-    <div class = "correct1"></div>
-    <table style="width:100%;">
-      <tr>
-        <th style ="text-align: center;">Correct Words</th>
-      </tr>
-      <tr>
-        <td>Jill</td>
-      </tr>
-      <tr>
-        <td>Eve</td>
-      </tr>
-    </table>
-    <div class = "incorrect2"></div>
-    <div class = "correct1"></div>
-    <table style="width:100%">
-      <tr>
-        <th style ="text-align: center;">Incorrect Words</th>
-      </tr>
-      <tr>
-        <td>Jill</td>
-      </tr>
-      <tr>
-        <td>Eve</td>
-      </tr>
-    </table>
+    <h3 id='player-2-score' style="text-align: center;">SCORE: </h3>
+    <div class = "correct2">
+      <table style="width:100%;">
+        <tr>
+          <th style ="text-align: center;">Correct Words</th>
+        </tr>
+      </table>
+    </div>  
+    <div class = "incorrect2">
+      <table style="width:100%">
+        <tr>
+          <th style ="text-align: center;">Incorrect Words</th>
+        </tr>
+      </table>
   </div>
+
   <div id="app"></div>
   <!-- <canvas id="canvas"></canvas> -->
 

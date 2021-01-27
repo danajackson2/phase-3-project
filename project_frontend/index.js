@@ -1,6 +1,8 @@
 //= require bootstrap
 let user1 = ""
 let user2 = ""
+let currentPlayer
+let currentGame = {}
 const gems = ['assets/greengem.png','assets/whitegem.png','assets/purplegem.png','assets/redgem.png']
 addEventListeners()
 
@@ -80,6 +82,10 @@ function login(e, num){
 }
 
 function newGame(u1, u2){
+  if (u1 === "" || u2 === ""){
+    alert("Log in both players before starting a new game.")
+  } else {
+    startGame()
     fetch(GAMES_URL, {
         method: 'POST',
         headers: {'content-type':'application/json'},
@@ -89,10 +95,16 @@ function newGame(u1, u2){
         })
     })
     .then(res => res.json())
-    // .then(object => getWords())
+    .then(object => currentGame = object)
+  }
 }
 
 //DOM Changes
+function startGame(){
+  makeRows(6,6);
+  currentPlayer = 1
+  document.querySelector('div.boxed').style.background = '#D0FFA3'
+}
 
 function newUserMenu(){
     if (!document.getElementById('new-user-form')){
@@ -101,10 +113,12 @@ function newUserMenu(){
         let label = document.createElement('label')
         label.textContent = "Username: "
         let input = document.createElement('input')
+        input.style = 'color:black'
         input.placeholder = "Joe Schmoe"
         let button = document.createElement('button')
         button.type = 'submit'
         button.textContent = "Submit"
+        button.style = 'color:black'
         form.append(label, input, button)
         document.getElementById('new-user-div').appendChild(form)
         form.addEventListener('submit', newUser)
@@ -112,21 +126,19 @@ function newUserMenu(){
 }
 
 function populateUser(name, num){
-    if (num === 1){
-        document.getElementById('player-1-name').textContent = name;
-        debugger
-        user1 = name
-    } else {
-        document.getElementById('player-2-name').textContent = name;
-        user2 = name
-    }
+  (num === 1)? user1 = name : user2 = name
+  document.getElementById(`player-${num}-name`).textContent = `PLAYER ${num}: ${name}`;
+  let h3 = document.getElementById(`player-${num}-score`)
+  let span = document.createElement('span')
+  span.textContent = "0"
+  h3.appendChild(span)
 }
 
 //Event Listeners
 document.getElementById('new-user-button').addEventListener('click', newUserMenu)
 document.getElementById('player-1-login').addEventListener('submit', (e) => login(e, 1))
 document.getElementById('player-2-login').addEventListener('submit', (e) => login(e, 2))
-//document.getElementById('new-game').addEventListener('click', () => newGame(user1, user2))
+document.querySelector('button.new-game').addEventListener('click', () => newGame(user1, user2))
 const container = document.getElementById("container");
 
 function addEventListeners(){
@@ -137,37 +149,97 @@ function addEventListeners(){
 }
 
 function showRules(){
-    console.log('hi')
     let rules = document.getElementById('rules')
     rules.style.display = 'block'
     rules.style.background = 'darkgray'
 }
 
 function hideRules(){
-    let wordcard = document.getElementById('wordcard')
+    let wordcard = document.getElementById('rules')
     wordcard.style.display = 'None'
 }
 
 function showCard(e){
     getWord(parseInt(e.target.innerText))
+    let selectedBox = e.target
     let wordcard = document.getElementById('wordcard')
     wordcard.style.display = 'block'
     wordcard.style.background = 'darkgray'
-    e.target.textContent = 'X'
-    e.target.style.color = 'white'
-    e.target.style.backgroundColor = 'red'
+    document.getElementById('answer').addEventListener('submit', (e) => evaluateAnswer(e, selectedBox))
     e.target.removeEventListener('click', showCard)
 }
+
 function addWordToCard(word){
     document.querySelector('#correct-word').value = word
 }
+
 function addAudioToCard(url){
     document.getElementById('audio-source').src = url
 }
+
 function addDefinitionToCard(def){
     document.getElementById('definition').textContent = `Word definition: ${def}`
 }
 
+function evaluateAnswer(e, box){
+  e.preventDefault()
+  let answer = e.target.querySelector('input').value.toLowerCase()
+  let correct = document.querySelector('#wordcard #correct-word').value.toLowerCase()
+  if (answer === correct) {
+    //confetti
+    boxToDone(box)
+    addToCorrectColumn(answer)
+    updateScore(box.innerText)
+  } else {
+    addToIncorrectColumn(correct)
+  }
+  document.getElementById('answer').removeEventListener('submit', (e) => evaluateAnswer(e, box))
+  document.getElementById('wordcard').style.display = "None"
+  togglePlayer()
+}
+
+function boxToDone(box){
+    box.textContent = 'X'
+    box.style.color = 'white'
+    box.style.backgroundColor = 'red'
+}
+
+function addToCorrectColumn(word){
+  let table = document.querySelector(`div.correct${currentPlayer} table`)
+  let newRow = document.createElement('tr')
+  let newData = document.createElement('td')
+  newData.textContent = word
+  newRow.appendChild(newData)
+  table.appendChild(newRow)
+}
+
+function addToIncorrectColumn(word){
+  let table = document.querySelector(`div.incorrect${currentPlayer} table`)
+  let newRow = document.createElement('tr')
+  let newData = document.createElement('td')
+  newData.textContent = word
+  newRow.appendChild(newData)
+  table.appendChild(newRow)
+}
+
+function togglePlayer(){
+  if (currentPlayer === 1){
+    currentPlayer = 2
+    document.querySelector('div.boxed2').style.background = '#D0FFA3'
+    document.querySelector('div.boxed').style.background = 'white'
+  } else {
+    currentPlayer = 1
+    document.querySelector('div.boxed').style.background = '#D0FFA3'
+    document.querySelector('div.boxed2').style.background = 'white'
+  }
+}
+
+function updateScore(points){
+    let num = currentPlayer
+    currentScore = parseInt(document.querySelector(`#player-${num}-score span`).textContent)
+    newScore = currentScore + points
+    document.querySelector(`#player-${num}-score span`).textContent = newScore
+}
 
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -204,9 +276,6 @@ function makeRows(rows, cols) {
     container.appendChild(cell).className = "grid-item";
   };
 };
-
-
-makeRows(6,6);
 
 const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
@@ -322,73 +391,70 @@ function setCircleDasharray() {
     .setAttribute("stroke-dasharray", circleDasharray);
 }
 
+// const canvasEl = document.querySelector('#canvas');
 
+// const w = canvasEl.width = window.innerWidth;
+// const h = canvasEl.height = window.innerHeight * 2;
 
-
-const canvasEl = document.querySelector('#canvas');
-
-const w = canvasEl.width = window.innerWidth;
-const h = canvasEl.height = window.innerHeight * 2;
-
-function loop() {
-  requestAnimationFrame(loop);
-	ctx.clearRect(0,0,w,h);
+// function loop() {
+//   requestAnimationFrame(loop);
+// 	ctx.clearRect(0,0,w,h);
   
-  confs.forEach((conf) => {
-    conf.update();
-    conf.draw();
-  })
-}
+//   confs.forEach((conf) => {
+//     conf.update();
+//     conf.draw();
+//   })
+// }
 
-function Confetti () {
-  //construct confetti
-  const colours = ['#fde132', '#009bde', '#ff6b00'];
+// function Confetti () {
+//   //construct confetti
+//   const colours = ['#fde132', '#009bde', '#ff6b00'];
   
-  this.x = Math.round(Math.random() * w);
-  this.y = Math.round(Math.random() * h)-(h/2);
-  this.rotation = Math.random()*360;
+//   this.x = Math.round(Math.random() * w);
+//   this.y = Math.round(Math.random() * h)-(h/2);
+//   this.rotation = Math.random()*360;
 
-  const size = Math.random()*(w/60);
-  this.size = size < 15 ? 15 : size;
+//   const size = Math.random()*(w/60);
+//   this.size = size < 15 ? 15 : size;
 
-  this.color = colours[Math.floor(colours.length * Math.random())];
+//   this.color = colours[Math.floor(colours.length * Math.random())];
 
-  this.speed = this.size/2;
+//   this.speed = this.size/2;
   
-  this.opacity = Math.random();
+//   this.opacity = Math.random();
 
-  this.shiftDirection = Math.random() > 0.5 ? 1 : -1;
-}
+//   this.shiftDirection = Math.random() > 0.5 ? 1 : -1;
+// }
 
-Confetti.prototype.border = function() {
-  if (this.y >= h) {
-    this.y = h;
-  }
-}
+// Confetti.prototype.border = function() {
+//   if (this.y >= h) {
+//     this.y = h;
+//   }
+// }
 
-Confetti.prototype.update = function() {
-  this.y += this.speed;
+// Confetti.prototype.update = function() {
+//   this.y += this.speed;
   
-  if (this.y <= h) {
-    this.x += this.shiftDirection/3;
-    this.rotation += this.shiftDirection*this.speed/100;
-  }
+//   if (this.y <= h) {
+//     this.x += this.shiftDirection/3;
+//     this.rotation += this.shiftDirection*this.speed/100;
+//   }
 
-  if (this.y > h) this.border();
-};
+//   if (this.y > h) this.border();
+// };
 
-Confetti.prototype.draw = function() {
-  ctx.beginPath();
-  ctx.arc(this.x, this.y, this.size, this.rotation, this.rotation+(Math.PI/2));
-  ctx.lineTo(this.x, this.y);
-  ctx.closePath();
-  ctx.globalAlpha = this.opacity;
-  ctx.fillStyle = this.color;
-  ctx.fill();
-};
+// Confetti.prototype.draw = function() {
+//   ctx.beginPath();
+//   ctx.arc(this.x, this.y, this.size, this.rotation, this.rotation+(Math.PI/2));
+//   ctx.lineTo(this.x, this.y);
+//   ctx.closePath();
+//   ctx.globalAlpha = this.opacity;
+//   ctx.fillStyle = this.color;
+//   ctx.fill();
+// };
 
-const ctx = canvasEl.getContext('2d');
-const confNum = Math.floor(w / 4);
-const confs = new Array(confNum).fill().map(_ => new Confetti());
+// const ctx = canvasEl.getContext('2d');
+// const confNum = Math.floor(w / 4);
+// const confs = new Array(confNum).fill().map(_ => new Confetti());
 
-loop();
+// loop();
