@@ -2,8 +2,10 @@ class GamesController < ApplicationController
 
     def create
         game = Game.create
-        Session.create(game_id:game.id, user_id: player 1 id)
-        Session.create(game_id:game.id, user_id: player 2 id)
+        user1 = User.find_by(name:params["user1"])
+        user2 = User.find_by(name:params["user2"])
+        Session.create(game_id:game.id, user_id: user1.id)
+        Session.create(game_id:game.id, user_id: user2.id)
         render json: game
     end
 

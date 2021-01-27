@@ -8,31 +8,32 @@ addEventListeners()
 
 //API Calls
 function getWord(points){
-    let min
-    let max
-    if (points === 1){
-        min = 5
-        max = 7
-    } else if (points === 2){
-        min = 8
-        max = 10
-    } else {
-        min = 11
-        max = 13
-    }
-    fetch(`https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=${min}&maxLength=${max}&api_key=cu7u7wkgtpw6qy1dk3dntx8j5mg44xqx87painf5jh5k8blrm`)
-    .then(res => res.json())
-    .then(object => {
-        getAudio(object['word'])
-        getDefinition(object['word'])
-        addWordToCard(object['word'])
-    })
+  let min
+  let max
+  if (points === 1){
+      min = 5
+      max = 7
+  } else if (points === 2){
+      min = 8
+      max = 10
+  } else {
+      min = 11
+      max = 13
+  }
+  fetch(`https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=${min}&maxLength=${max}&api_key=cu7u7wkgtpw6qy1dk3dntx8j5mg44xqx87painf5jh5k8blrm`)
+  .then(res => res.json())
+  .then(object => {
+      getAudio(object['word'])
+      getDefinition(object['word'])
+      addWordToCard(object['word'])
+  })
 }
 function getAudio(word){
+  debugger
     fetch(`https://api.wordnik.com/v4/word.json/${word}/audio?useCanonical=false&limit=50&api_key=cu7u7wkgtpw6qy1dk3dntx8j5mg44xqx87painf5jh5k8blrm`)
     .then(res => res.json())
     .then(object => {
-        addAudioToCard(object[0]['fileUrl'])
+          addAudioToCard(object[0]['fileUrl'])
     })
 }
 function getDefinition(word){
@@ -76,6 +77,7 @@ function login(e, num){
         if (users.find(user => user.name === name) === undefined){
             alert("User does not exist.")
         } else {
+            document.querySelector(`#player-${num}-login input`).value = ""
             populateUser(name, num)
         }
     })
@@ -135,17 +137,18 @@ function populateUser(name, num){
 }
 
 //Event Listeners
-document.getElementById('new-user-button').addEventListener('click', newUserMenu)
-document.getElementById('player-1-login').addEventListener('submit', (e) => login(e, 1))
-document.getElementById('player-2-login').addEventListener('submit', (e) => login(e, 2))
-document.querySelector('button.new-game').addEventListener('click', () => newGame(user1, user2))
 const container = document.getElementById("container");
 
 function addEventListeners(){
-    let rulesnav = document.querySelector('li.rulesnav')
-    let closeBtn = document.getElementsByClassName('close')[0]
-    rulesnav.addEventListener('click',showRules)
-    closeBtn.addEventListener('click',hideRules)
+  let rulesnav = document.querySelector('li.rulesnav')
+  let closeBtn = document.getElementsByClassName('close')[0]
+  rulesnav.addEventListener('click',showRules)
+  closeBtn.addEventListener('click',hideRules)
+
+  document.getElementById('new-user-button').addEventListener('click', newUserMenu)
+  document.getElementById('player-1-login').addEventListener('submit', (e) => login(e, 1))
+  document.getElementById('player-2-login').addEventListener('submit', (e) => login(e, 2))
+  document.querySelector('button.new-game').addEventListener('click', () => newGame(user1, user2))
 }
 
 function showRules(){
@@ -182,18 +185,19 @@ function addDefinitionToCard(def){
 }
 
 function evaluateAnswer(e, box){
+  debugger
   e.preventDefault()
   let answer = e.target.querySelector('input').value.toLowerCase()
   let correct = document.querySelector('#wordcard #correct-word').value.toLowerCase()
   if (answer === correct) {
-    //confetti
-    boxToDone(box)
-    addToCorrectColumn(answer)
     updateScore(box.innerText)
+    addToCorrectColumn(answer)
+    boxToDone(box)
   } else {
     addToIncorrectColumn(correct)
   }
   document.getElementById('answer').removeEventListener('submit', (e) => evaluateAnswer(e, box))
+  document.querySelector('form#answer input').value = ""
   document.getElementById('wordcard').style.display = "None"
   togglePlayer()
 }
