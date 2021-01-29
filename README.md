@@ -1,4 +1,4 @@
-SPELLING BEE GAME
+<h1>SPELLING BEE GAME</h1>
 
 Prerequisites
 
