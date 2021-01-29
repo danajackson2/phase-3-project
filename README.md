@@ -1,4 +1,4 @@
-<h2>SPELLING BEE GAME</h2>
+<h2>SPELLING BEE GAME  🐝 </h2>
 
 <h3>Prerequisites</h3>
 
