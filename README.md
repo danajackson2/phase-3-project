@@ -10,11 +10,20 @@ Before you begin, ensure you have met the following requirements:
 4. You have installed (https://bundler.io/).
 5. You have a Windows/Mac machine.
 
+Installing SpellBee
+
+To install SpellBee, follow these steps:
+
+1. Navigate to (https://github.com/danajackson2/phase-3-project/) to clone the project.
+2. Create a directory where you would like to store the file.
+3. Navigate into that directory and use the command: git clone <project-SSH>
+
 Instructions
 
-1. Clone the repo to your local machine
-2. Navigate to the project_backend folder and run 'bundle install'. Run 'rails s' to start the server.
-3. Navigate to the project_frontend folder and open 'index.html' in your browser.
+For a quick demo, follow the link (https://youtu.be/B0B4GIFyu7I) To use SpellBee, follow these steps after forking, in your terminal:
+
+1. Navigate to the project_backend folder and run 'bundle install'. Run 'rails s' to start the server.
+2. Navigate to the project_frontend folder and open 'index.html' in your browser.
 
 
 How To Play?
@@ -30,4 +39,26 @@ How To Play?
 5. When you answer incorrectly or run out of time, the selected square remains open for re-selection. The game switches to your opponent's turn.
 
 6. The game ends when all squares are marked as done!
+
+Contributing to SpellBee
+
+To contribute to SpellBee, follow these steps:
+
+Fork this repository.
+Create a branch: git checkout -b <branch_name>.
+Make your changes and commit them: git commit -m '<commit_message>'
+Push to the original branch: git push origin <project_name>/<location>
+Create the pull request. Alternatively see the GitHub documentation on creating a pull request.
+
+Contributors
+Thanks to the following people who have contributed to this project:
+
+@danajackson 📖 🐛
+@shreyasridhar📖 🐛
+
+Contact
+If you want to contact us you can reach us at or danajackson2@gmail.com or shreyasridhar1109@gmail.com
+
+License
+This project uses the following license: Learn.co Educational Content License.
 
