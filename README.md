@@ -1,4 +1,4 @@
-<h2>SPELLING BEE GAME  🐝 </h2>
+<h2>SPELLING BEE 🐝 </h2>
 
 <h3>Prerequisites</h3>
 
@@ -11,9 +11,9 @@ Before you begin, ensure you have met the following requirements:
 <li>You have a Windows/Mac machine.</li>
   </ul>
 
-<h3>Installing SpellBee</h3>
+<h3>Installing Spelling Bee</h3>
 
-To install SpellBee, follow these steps:
+To install Spelling Bee, follow these steps:
 
 1. Navigate to (https://github.com/danajackson2/phase-3-project/) to clone the project.
 2. Create a directory where you would like to store the file.
@@ -21,7 +21,7 @@ To install SpellBee, follow these steps:
 
 <h3>Instructions</h3>
 
-For a quick demo, follow the link (https://youtu.be/B0B4GIFyu7I) To use SpellBee, follow these steps after forking, in your terminal:
+For a quick demo, follow the link (https://www.youtube.com/watch?v=vnxJSvTS2KM&feature=youtu.be) To use Spelling Bee, follow these steps after forking, in your terminal:
 
 1. Navigate to the project_backend folder and run 'bundle install'. Run 'rails s' to start the server.
 2. Navigate to the project_frontend folder and open 'index.html' in your browser.
@@ -41,9 +41,9 @@ For a quick demo, follow the link (https://youtu.be/B0B4GIFyu7I) To use SpellBee
 
 6. The game ends when all squares are marked as done!
 
-<h3>Contributing to SpellBee</h3>
+<h3>Contributing to Spelling Bee</h3>
 
-To contribute to SpellBee, follow these steps:
+To contribute to Spelling Bee, follow these steps:
 
 <ul>
 <li>Fork this repository.</li>
