@@ -3,12 +3,13 @@
 <h3>Prerequisites</h3>
 
 Before you begin, ensure you have met the following requirements:
-
-1. You have installed version <Ruby/2.6.1>
-2. You have insalled <Rails 6.0.3.4>
-3. A working installation of the SQLite3 Database.
-4. You have installed (https://bundler.io/).
-5. You have a Windows/Mac machine.
+<ul>
+  <li>You have installed version <Ruby/2.6.1> </li>
+<li>You have insalled <Rails 6.0.3.4> <li>
+<li>A working installation of the SQLite3 Database. <li>
+<li>You have installed (https://bundler.io/). <li>
+<li>You have a Windows/Mac machine.<li>
+  </ul>
 
 <h3>Installing SpellBee</h3>
 
@@ -44,13 +45,13 @@ For a quick demo, follow the link (https://youtu.be/B0B4GIFyu7I) To use SpellBee
 
 To contribute to SpellBee, follow these steps:
 
-<ol>
+<ul>
 <li>Fork this repository.</li>
 <li>Create a branch: git checkout -b <branch_name>.</li>
 <li>Make your changes and commit them: git commit -m '<commit_message>'</li>
 <li>Push to the original branch: git push origin <project_name>/<location></li>
 <li>Create the pull request. Alternatively see the GitHub documentation on creating a pull request.</li>
-</ol>
+</ul>
 
 <h3>Contributors</h3>
 
