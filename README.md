@@ -4,7 +4,7 @@
 
 Before you begin, ensure you have met the following requirements:
 <ul>
-  <li>You have installed version <Ruby/2.6.1> </li>
+<li>You have installed version <Ruby/2.6.1> </li>
 <li>You have insalled <Rails 6.0.3.4> </li>
 <li>A working installation of the SQLite3 Database. </li>
 <li>You have installed (https://bundler.io/). </li>
@@ -45,13 +45,13 @@ For a quick demo, follow the link (https://youtu.be/B0B4GIFyu7I) To use SpellBee
 
 To contribute to SpellBee, follow these steps:
 
-<p>
-1. Fork this repository.
-2. Create a branch: git checkout -b <branch_name>.
-3. Make your changes and commit them: git commit -m '<commit_message>'
-4. Push to the original branch: git push origin <project_name>/<location>
-5. Create the pull request. Alternatively see the GitHub documentation on <a href = "https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request" creating a pull request.</a>
-</p>
+<ul>
+<li>Fork this repository.<li>
+<li> Create a branch: git checkout -b <branch_name>.</li>
+<li> Make your changes and commit them: git commit -m '<commit_message>'</li>
+<li> Push to the original branch: git push origin <project_name>/<location></li>
+<li> Create the pull request. Alternatively see the GitHub documentation on <a href = "https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request" creating a pull request.</a></li>
+  </ul>
 
 <h3>Contributors</h3>
 
