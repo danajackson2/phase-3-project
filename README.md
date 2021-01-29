@@ -50,15 +50,15 @@ To contribute to SpellBee, follow these steps:
 <li>Create a branch: git checkout -b <branch_name>.</li>
 <li>Make your changes and commit them: git commit -m '<commit_message>'</li>
 <li>Push to the original branch: git push origin <project_name>/<location></li>
-<li>Create the pull request. Alternatively see the GitHub documentation on creating a pull request.</li>
+<li>Create the pull request. Alternatively see the GitHub documentation on <a href = "https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request" creating a pull request.</a></li>
 </ul>
 
 <h3>Contributors</h3>
 
 Thanks to the following people who have contributed to this project:
 
-@danajackson 📖 🐛
-@shreyasridhar📖 🐛
+<a href ="https://github.com/danajackson2/">@danajackson 📖 🐛</a>
+<a href ="https://github.com/shreya-sridhar"> @shreyasridhar📖 🐛</a>
 
 <h3>Contact</h3>
 
