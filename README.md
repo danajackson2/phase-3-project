@@ -2,7 +2,10 @@ SPELLING BEE GAME
 
 Instructions
 
-1. 
+1. Clone the repo to your local machine
+2. Navigate to the project_backend folder and run 'bundle install'. Run 'rails s' to start the server.
+3. Navigate to the project_frontend folder and open 'index.html' in your browser.
+
 
 How To Play?
 
