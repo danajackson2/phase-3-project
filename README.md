@@ -1,6 +1,6 @@
-<h1>SPELLING BEE GAME</h1>
+<h2>SPELLING BEE GAME</h2>
 
-Prerequisites
+<h3>Prerequisites</h3>
 
 Before you begin, ensure you have met the following requirements:
 
@@ -10,7 +10,7 @@ Before you begin, ensure you have met the following requirements:
 4. You have installed (https://bundler.io/).
 5. You have a Windows/Mac machine.
 
-Installing SpellBee
+<h3>Installing SpellBee</h3>
 
 To install SpellBee, follow these steps:
 
@@ -18,7 +18,7 @@ To install SpellBee, follow these steps:
 2. Create a directory where you would like to store the file.
 3. Navigate into that directory and use the command: git clone <project-SSH>
 
-Instructions
+<h3>Instructions</h3>
 
 For a quick demo, follow the link (https://youtu.be/B0B4GIFyu7I) To use SpellBee, follow these steps after forking, in your terminal:
 
@@ -26,7 +26,7 @@ For a quick demo, follow the link (https://youtu.be/B0B4GIFyu7I) To use SpellBee
 2. Navigate to the project_frontend folder and open 'index.html' in your browser.
 
 
-How To Play?
+<h3>How To Play?</h3>
 
 1. Sign In as an existing user or Sign Up (& Sign In) as a new user to start playing
 
@@ -40,7 +40,7 @@ How To Play?
 
 6. The game ends when all squares are marked as done!
 
-Contributing to SpellBee
+<h3>Contributing to SpellBee</h3>
 
 To contribute to SpellBee, follow these steps:
 
@@ -50,18 +50,18 @@ Make your changes and commit them: git commit -m '<commit_message>'
 Push to the original branch: git push origin <project_name>/<location>
 Create the pull request. Alternatively see the GitHub documentation on creating a pull request.
 
-Contributors
+<h3>Contributors</h3>
 
 Thanks to the following people who have contributed to this project:
 
 @danajackson 📖 🐛
 @shreyasridhar📖 🐛
 
-Contact
+<h3>Contact</h3>
 
 If you want to contact us you can reach us at or danajackson2@gmail.com or shreyasridhar1109@gmail.com
 
-License
+<h3>License</h3>
 
 This project uses the following license: Learn.co Educational Content License.
 
