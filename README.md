@@ -57,7 +57,7 @@ To contribute to SpellBee, follow these steps:
 
 Thanks to the following people who have contributed to this project:
 
-<a href ="https://github.com/danajackson2/">@danajackson 📖 🐛</a>
+<a href ="https://github.com/danajackson2/">@danajackson 📖 🐛</a><br>
 <a href ="https://github.com/shreya-sridhar"> @shreyasridhar📖 🐛</a>
 
 <h3>Contact</h3>
