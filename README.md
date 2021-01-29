@@ -5,10 +5,10 @@
 Before you begin, ensure you have met the following requirements:
 <ul>
   <li>You have installed version <Ruby/2.6.1> </li>
-<li>You have insalled <Rails 6.0.3.4> <li>
-<li>A working installation of the SQLite3 Database. <li>
-<li>You have installed (https://bundler.io/). <li>
-<li>You have a Windows/Mac machine.<li>
+<li>You have insalled <Rails 6.0.3.4> </li>
+<li>A working installation of the SQLite3 Database. </li>
+<li>You have installed (https://bundler.io/). </li>
+<li>You have a Windows/Mac machine.</li>
   </ul>
 
 <h3>Installing SpellBee</h3>
