@@ -51,14 +51,17 @@ Push to the original branch: git push origin <project_name>/<location>
 Create the pull request. Alternatively see the GitHub documentation on creating a pull request.
 
 Contributors
+
 Thanks to the following people who have contributed to this project:
 
 @danajackson 📖 🐛
 @shreyasridhar📖 🐛
 
 Contact
+
 If you want to contact us you can reach us at or danajackson2@gmail.com or shreyasridhar1109@gmail.com
 
 License
+
 This project uses the following license: Learn.co Educational Content License.
 
